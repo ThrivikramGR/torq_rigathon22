@@ -10,8 +10,8 @@ router.use(express.urlencoded({extended: true}));
 router.post('/putData', (req, res) => {
     Quality.create({
         nodeId: req.body.nodeId,
-        lat: req.body.location.lat,
-        long: req.body.location.long,
+        lat: req.body.lat,
+        long: req.body.long,
         tds: req.body.tds,
         tss: req.body.tss,
         pH: req.body.pH,
