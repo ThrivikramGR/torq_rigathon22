@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const qualitySchema = new Schema({
     nodeId: {
         type: String,
+        unique: true,
         required: true
     },
     lat: {
