@@ -15,3 +15,6 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser:true,useUnifiedTopology
 
 const quality = require('./controller/quality');
 app.use('/quality', quality);
+
+const user = require('./controller/user');
+app.use('/user', user);
