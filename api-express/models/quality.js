@@ -8,11 +8,11 @@ const qualitySchema = new Schema({
     },
     lat: {
         type: String,
-        required: String
+        required: true
     },
     long: {
         type: String,
-        required: String
+        required: true
     },
     tds: {
         type: Number,
