@@ -40,6 +40,9 @@ const qualitySchema = new Schema({
     },
     disOxygen: {
         type: String
+    },
+    scale: {
+        type: Number
     }
 }, {timestamps: true});
 
