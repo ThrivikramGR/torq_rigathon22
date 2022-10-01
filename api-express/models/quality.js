@@ -4,7 +4,30 @@ const Schema = mongoose.Schema;
 const qualitySchema = new Schema({
     nodeId: {
         type: String,
-        unique: true,
+        required: true
+    },
+    atmosphericTemperature:{
+        type: String,
+        required: true
+    },
+    waterTemperature: {
+        type: String,
+        required: true
+    },
+    turbidity: {
+        type: String,
+        required: true
+    },
+    tds: {
+        type: String,
+        required: true
+    },
+    tss: {
+        type: String,
+        required: true
+    },
+    pH: {
+        type: String,
         required: true
     },
     lat: {
@@ -15,28 +38,8 @@ const qualitySchema = new Schema({
         type: String,
         required: true
     },
-    tds: {
-        type: Number,
-        required: true
-    },
-    tss: {
-        type: Number,
-        required: true
-    },
-    pH: {
-        type: Number,
-        required: true
-    },
-    turbidity: {
-        type: Number,
-        required: true
-    },
-    temperature: {
-        type: Number,
-        required: true
-    },
     disOxygen: {
-        type: Number
+        type: String
     }
 });
 
