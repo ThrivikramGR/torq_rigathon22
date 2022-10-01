@@ -41,6 +41,6 @@ const qualitySchema = new Schema({
     disOxygen: {
         type: String
     }
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model('quality', qualitySchema);
