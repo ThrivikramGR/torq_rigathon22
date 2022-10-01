@@ -1,13 +1,14 @@
 const express = require('express');
-const quality = require('../models/quality');
 const router = express.Router();
 
 const Quality = require('../models/quality');
+const calScale = require('../views/formula');
 
 router.use(express.json());
 router.use(express.urlencoded({extended: true}));
 
 router.post('/putData', (req, res) => {
+    const scale = calScale(Number(req.body.tds), Number(req.body.pH), Number(req.body.turbidity), Number(req.body.waterTemperature));
     Quality.create({
         nodeId: req.body.nodeId,
         lat: req.body.lat,
@@ -18,9 +19,10 @@ router.post('/putData', (req, res) => {
         turbidity: req.body.turbidity,
         waterTemperature: req.body.waterTemperature,
         atmosphericTemperature: req.body.atmosphericTemperature,
-        disOxygen: req.body.disOxygen
+        disOxygen: req.body.disOxygen,
+        scale: scale
     }).then((quality) => {
-        return res.status(201).json({success: true, message: "Data Added Successfully"});    
+        return res.status(201).json({success: true, message: "Data Added Successfully", quality: quality});    
     }).catch((err) => {
         return res.status(500).json({success: false, message: err.message});
     });
